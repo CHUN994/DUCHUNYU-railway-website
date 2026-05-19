@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>车务系统</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="header-box">
+        <img class="bg-video" src="../images/17.jpg">
+        <div class="mask"></div>
+        <div class="header-text">
+            <h1>车务系统</h1>
+            <p>行车组织 · 客运服务 · 接发列车</p>
+        </div>
+        <div class="card-box">
+            <div class="card-item" onclick="location.href='index.html'">
+                <span class="card-text">首页</span>
+                <img src="../images/6.jpg" alt="首页">
+            </div>
+            <div class="card-item" onclick="location.href='system-gongwu.html'">
+                <span class="card-text">工务</span>
+                <img src="../images/7.jpg" alt="工务">
+            </div>
+            <div class="card-item" onclick="location.href='system-jiwu.html'">
+                <span class="card-text">机务</span>
+                <img src="../images/8.jpg" alt="机务">
+            </div>
+            <div class="card-item active" onclick="location.href='system-chewu.html'">
+                <span class="card-text">车务</span>
+                <img src="../images/9.jpg" alt="车务">
+            </div>
+            <div class="card-item" onclick="location.href='system-dianwu.html'">
+                <span class="card-text">电务</span>
+                <img src="../images/10.jpg" alt="电务">
+            </div>
+            <div class="card-item" onclick="location.href='system-cheliang.html'">
+                <span class="card-text">车辆</span>
+                <img src="../images/11.jpg" alt="车辆">
+            </div>
+            <div class="card-item" onclick="location.href='life-photo.html'">
+                <span class="card-text">图文纪实</span>
+                <img src="../images/14.jpg" alt="图文纪实">
+            </div>
+            <div class="card-item" onclick="location.href='ai.html'">
+                <span class="card-text">AI助手</span>
+                <img src="../images/12.jpg" alt="AI助手">
+            </div>
+            <div class="card-item" onclick="location.href='about-us.html'">
+                <span class="card-text">关于我们</span>
+                <img src="../images/13.jpg" alt="关于我们">
+            </div>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <div class="content-bg"></div>
+        <div class="content-inner">
+            <div class="content-wrap">
+                <div class="video-area">
+                    <video class="placeholder-video" autoplay loop muted playsinline>
+                        <source src="../video/5.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-area">
+                    <h2>车务专业介绍</h2>
+                    <p>车务负责车站客运组织、行车调度、接发列车与票务安检。</p>
+                    <p>保障旅客出行秩序，把控行车安全，是铁路对外服务窗口。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cardBox = document.querySelector('.card-box');
+        let idleTimer;
+        function startIdleTimer(){
+            idleTimer = setTimeout(()=>{
+                cardBox.classList.add('loop-animate');
+                setTimeout(()=>{
+                    cardBox.classList.remove('loop-animate');
+                    startIdleTimer();
+                },1600)
+            },8000)
+        }
+        function resetTimer(){
+            clearTimeout(idleTimer);
+            cardBox.classList.remove('loop-animate');
+            startIdleTimer();
+        }
+        cardBox.addEventListener('mouseenter', resetTimer);
+        window.addEventListener('load', startIdleTimer);
+    </script>
+</body>
+</html>
